@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-//import {crearPelicula } from '../features/auth/peliculaSlice'
+import { useDispatch } from 'react-redux'
+import {crearPelicula } from '../features/auth/peliculaSlice'
 
 
 const PeliculaForm = () => {
@@ -10,8 +10,10 @@ const dispatch = useDispatch()
 
 const onSubmit = (e) => {
   e.preventDefault()
-}
+  dispatch(crearPelicula({original_title}))
+  setTitle('')
 
+}
 
   return (
    <section className='form'>
@@ -28,7 +30,7 @@ const onSubmit = (e) => {
         </div>
       <div className="form-group">
         <button className='btn btn-block' type='submit'>
-          Agregar titulo de pelicula
+          Agregar titulo de una pelicula
         </button>
         </div>
     </form>

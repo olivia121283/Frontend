@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
-//import peliculaService from './peliculaService'
+import peliculaService from './peliculaService'
 
 
 const initialState = {
@@ -27,6 +27,22 @@ initialState,
 reducers: {
   reset: (state) => initialState
   },
+  extraReducers: (builder) => {
+    builder
+    .addCase(crearPelicula.pending, (state) => {
+      state.isLoading = true
+    })
+    .addCase(crearPelicula.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.isSuccess = true
+      state.peliculas.push(action.payload)
+    })
+    .addCase(crearPelicula.rejected, (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.message = action.payload
+    })
+  }
 })
 
 export const {reset} = peliculaSlice.actions
