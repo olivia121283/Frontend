@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://mysterious-tights-lamb.cyclic.cloud/api/users/'
+const API_URL = 'https://fair-clam-kerchief.cyclic.app/api/users/'
 
 // crear un usuario
 const register = async (userData) => {
