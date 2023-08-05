@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {crearPelicula } from '../features/auth/peliculaSlice'
-
+import {crearPelicula } from '../features/peliculas/peliculaSlice'
 
 const PeliculaForm = () => {
 
@@ -12,7 +11,6 @@ const onSubmit = (e) => {
   e.preventDefault()
   dispatch(crearPelicula({original_title}))
   setTitle('')
-
 }
 
   return (
